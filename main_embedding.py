@@ -17,6 +17,7 @@ from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
+from langchain_openai import ChatOpenAI
 
 
 load_dotenv()
@@ -49,7 +50,7 @@ class chat_gen():
 
 
     def load_model(self,):
-        llm = AzureChatOpenAI(
+        llm = ChatOpenAI(
                             # deployment_name=DEPLOYEMENT_NAME,
                             temperature=0.0,
                             max_tokens=4000,
@@ -71,7 +72,7 @@ class chat_gen():
         prompt = PromptTemplate.from_template(template)
         chain = ConversationalRetrievalChain.from_llm(
             llm=llm,
-            retriever=self.load_doc("./data/snowflake_container.pdf").as_retriever(),
+            retriever=self.load_doc("./data/Security_Guide_EN.pdf").as_retriever(),
             #condense_question_prompt=prompt,
             combine_docs_chain_kwargs={'prompt': prompt},
             chain_type="stuff",
