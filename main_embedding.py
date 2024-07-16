@@ -17,7 +17,7 @@ from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
-from langchain_openai import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 
 
 load_dotenv()
@@ -45,7 +45,7 @@ class chat_gen():
         vectorstore.save_local("faiss_index_datamodel")
 
         # Load from local storage
-        persisted_vectorstore = FAISS.load_local("faiss_index_datamodel", embeddings)
+        persisted_vectorstore = FAISS.load_local("faiss_index_datamodel", embeddings, allow_dangerous_deserialization=True)
         return persisted_vectorstore
 
 
