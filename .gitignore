@@ -1,0 +1,32 @@
+# Compiled source files
+*.class
+*.o
+*.so
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Environment variables
+.env
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# venv
+rag-bot/
+
+# vector db
+faiss_index_datamodel/
