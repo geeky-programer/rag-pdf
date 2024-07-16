@@ -1,5 +1,5 @@
 import streamlit as st
-from main_embedding import chat_gen
+from chat_w_pdf_openai.main_embedding import chat_gen
 
 @st.cache_resource
 def initialize():
